@@ -1,0 +1,72 @@
+{% extends "layouts/base.html" %} {% block title %} Tables {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %} {% block content %}
+
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header d-flex flex-row justify-content-around">
+					<h4 class="card-title">User List</h4>
+					<h4 class="card-title"><a href="{% url 'add-user' %}"> Add </a></h4>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						{% if object %}
+							<form method="post" class="text-center">
+								{% csrf_token %}
+								<p>Are you sure you want to delete "{{ object.username }}"?</p>
+								<input class="btn" type="submit" value="Confirm">
+								<input class="btn" type="" value="Cancel">
+							</form>
+						{% else %}
+						<table class="table tablesorter" id="">
+							<thead class="text-primary">
+                                <tr>
+                                    <th>User Id</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>User Name</th>
+                                    <th>Email</th>
+									<th>Is Superuser</th>
+									<th>Account Creation</th>
+									<th>User Type</th>
+									<th>Full Address</th>
+									<th>Operation</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for usr_detail in users %}
+                                {% if usr_detail.user_id != user.user_id %}
+                                    <tr>
+                                        <td>{{ usr_detail.user_id }}</td>
+                                        <td>{{ usr_detail.first_name }}</td>
+                                        <td>{{ usr_detail.last_name }}</td>
+                                        <td>{{ usr_detail.username }}</td>
+                                        <td>{{ usr_detail.email }}</td>
+                                        <td>{{ usr_detail.is_superuser }}</td>
+                                        <td>{{ usr_detail.date_joined }}</td>
+                                        <td>{{ usr_detail.user_type }}</td>
+                                        <td>{{ usr_detail.address }}, {{ usr_detail.city }}, {{ usr_detail.country }}</td>
+                                        <td>
+                                            <a href="{% url 'update-user' pk=usr_detail.user_id %}"> Edit </a> |
+                                            <a href="{% url 'delete-user' pk=usr_detail.user_id %}"> Delete </a>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+								{% endfor %}
+							</tbody>
+						</table>
+						{% endif %}
+					</div>
+				</div>					
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

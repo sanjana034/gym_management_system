@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			href="{{ ASSETS_ROOT }}/img/dumbell.png"
+		/>
+
+		<title>Gym Management</title>
+
+		<!--     Fonts and icons     -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
+			rel="stylesheet"
+		/>
+		<!-- Font Awesome Icons -->
+		<link
+			href="{% static 'fontawesomefree/css/fontawesome.css' %}"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<link
+			href="{% static 'fontawesomefree/css/brands.css' %}"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<link
+			href="{% static 'fontawesomefree/css/solid.css' %}"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<!-- CSS Files -->
+		<link
+			href="{{ ASSETS_ROOT }}/css/black-dashboard.css?v=1.0.0"
+			rel="stylesheet"
+		/>
+		<link
+			href="{{ ASSETS_ROOT }}/css/theme-switcher.css"
+			rel="stylesheet"
+		/>
+
+		<!-- Specific Page CSS goes HERE  -->
+		{% block stylesheets %}{% endblock stylesheets %}
+	</head>
+	<body class="">
+		<div class="wrapper">
+			{% include 'includes/sidebar.html' %}
+
+			<div class="main-panel">
+				{% include 'includes/navigation.html' %} 
+                {% block content %}
+                {%endblock content %}
+			</div>
+		</div>
+
+		{% include 'includes/scripts.html' %}
+
+		<!-- Specific Page JS goes HERE  -->
+		{% block javascripts %}{% endblock javascripts %}
+	</body>
+</html>

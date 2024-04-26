@@ -1,0 +1,64 @@
+{% extends "layouts/base.html" %} {% block title %} Tables {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %} {% block content %}
+
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header d-flex flex-row justify-content-around">
+					<h4 class="card-title">Class Schedules</h4>
+					<h4 class="card-title">
+						<a href="{% url 'schedule-class' %}"> Add </a>
+					</h4>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						{% if object %}
+							<form method="post" class="text-center">
+								{% csrf_token %}
+								<p>Are you sure you want to delete "{{ object.class_name }}"?</p>
+								<input class="btn" type="submit" value="Confirm">
+								<input class="btn" type="" value="Cancel">
+							</form>
+						{% else %}
+						<table class="table tablesorter" id="">
+							<thead class="text-primary">
+                                <tr>
+                                    <th>Class Id</th>
+                                    <th>Class Name</th>
+                                    <th>Class Description</th>
+                                    <th>Class Date</th>
+                                    <th>Tutor</th>
+                                    <th>Operations</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for class in classes %}
+                                    <tr>
+                                        <td>{{ class.class_id }}</td>
+                                        <td>{{ class.class_name }}</td>
+                                        <td>{{ class.class_description }}</td>
+                                        <td>{{ class.class_date }}</td>
+                                        <td>{{ class.tutor_id }}</td>
+                                        <td>
+                                            <a href="{% url 'update-scheduled-class' pk=class.class_id %}"> Edit </a> |
+                                            <a href="{% url 'delete-scheduled-class' pk=class.class_id %}"> Delete </a>
+                                        </td>
+                                    </tr>
+								{% endfor %}
+							</tbody>
+						</table>
+						{% endif %}
+					</div>
+				</div>					
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

@@ -1,0 +1,70 @@
+<div class="sidebar">
+	<div class="sidebar-wrapper">
+		<ul class="nav">
+			<li class="{% if 'dashboard' in request.path %} active {% endif %}">
+				<a href="{% url 'dashboard' %}">
+					<i class="fa-solid fa-house"></i>
+					<p>Dashboard</p>
+				</a>
+			</li>
+			
+			{% if user.is_superuser %}
+			<li class="{% if 'gym-plans' in request.path %} active {% endif %}">
+				<a href="{% url 'gym-plans' %}">
+					<i class="fa-solid fa-calendar-days"></i>
+					<p>Gym Plans</p>
+				</a>
+			</li>
+			<li class="{% if 'users' in request.path %} active {% endif %}">
+				<a href="{% url 'list-users' %}">
+					<i class="fa-solid fa-users"></i>
+					<p>Manage User</p>
+				</a>
+			</li>
+			{% else %}
+			<li class="{% if 'subscription' in request.path %} active {% endif %}">
+				<a href="{% url 'subscription' %}">
+					<i class="fa-solid fa-check-to-slot"></i>
+					<p>Your Plan</p>
+				</a>
+			</li>
+			<li class="{% if 'activity' in request.path %} active {% endif %}">
+				<a href="/calender.html">
+					<i class="fa-solid fa-calendar-days"></i>
+					<p>Your Activity</p>
+				</a>
+			</li>
+			{% endif %}
+			<li class="{% if 'class-schedules' in request.path %} active {% endif %}">
+				<a
+				{% if user.is_superuser %}
+				href="{% url 'class-schedules' %}
+				{% else %}
+				href="{% url 'dashboard' %}"
+				{% endif %}
+				">
+					<i class="fa-solid fa-calendar-day"></i>
+					<p>Scheduled Class</p>
+				</a>
+			</li>
+			<li class="{% if 'notifications' in request.path %} active {% endif %}">
+				<a href="/notifications.html">
+					<i class="fa-solid fa-bell"></i>
+					<p>Notifications</p>
+				</a>
+			</li>
+			<li class="{% if 'update-profile' in request.path %} active {% endif %}">
+				<a href="{% url 'update-profile' pk=user.user_id %}">
+					<i class="fa-solid fa-address-card"></i>
+					<p>User Profile</p>
+				</a>
+			</li>
+			<li>
+				<a href="{% url 'logout' %}">
+					<i class="fa-solid fa-power-off"></i>
+					<p>Logout</p>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>

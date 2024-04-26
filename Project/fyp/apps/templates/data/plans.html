@@ -1,0 +1,58 @@
+{% extends "layouts/base.html" %} {% block title %} Tables {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %} {% block content %}
+
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header d-flex flex-row justify-content-around">
+					<h4 class="card-title">Gym Plan</h4>
+					<h4 class="card-title"><a href="{% url 'add-plan' %}"> Add </a></h4>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						{% if object %}
+							<form method="post" class="text-center">
+								{% csrf_token %}
+								<p>Are you sure you want to delete "{{ object.plan_name }}"?</p>
+								<input class="btn" type="submit" value="Confirm">
+								<input class="btn" type="" value="Cancel">
+							</form>
+						{% else %}
+						<table class="table tablesorter" id="">
+							<thead class="text-primary">
+								<tr>
+									<th>Plan Name</th>
+									<th>Plan Duration</th>
+									<th class="text-center">Plan Cost</th>
+									<th class="text-center">Operation</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for plan in plans %}
+								<tr>
+									<td>{{ plan.plan_name }}</td>
+									<td>{{ plan.plan_duration}}</td>
+									<td class="text-center">{{ plan.plan_cost}}</td>
+									<td class="text-center">
+										<a href="{% url 'update-plan' pk=plan.plan_id %}"> Edit </a> |
+										<a href="{% url 'delete-plan' pk=plan.plan_id %}"> Delete </a>
+									</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+						{% endif %}
+					</div>
+				</div>					
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

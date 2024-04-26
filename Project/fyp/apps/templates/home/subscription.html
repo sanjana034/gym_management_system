@@ -1,0 +1,54 @@
+{% extends 'layouts/base.html' %} {% block title %} Dashboard {% endblock %}
+
+<!-- Specific Page CSS goes HERE -->
+{% block stylesheets %} {% endblock %} {% block content %}
+<div class="content">
+	<div class="row">
+		<div class="col-12">
+			<div class="card card-chart">
+				<div class="card-header">
+					<div class="container-fluid">
+						<div class="text-center">
+							<h1 class="card-title">Subscription</h1>
+							<h3 class="card-category">
+							</h3>
+							<h3 class="card-category">
+							</h3>
+						</div>
+                        <hr>
+						<div class="text-center">
+							{% if plan %} 
+							<div class="container p-4">
+								<div class="row align-self-center">
+									<div class="col">
+										Plan Name : {{ plan.plan_name }}
+									</div>
+									<div class="col">
+										Plan Start Date : {{ plan.start_date }}
+									</div>
+									<div class="col">
+										Plan End Date : {{ plan.end_date }}
+									</div>
+								</div>
+							</div>
+							{% else %}
+							<h3 class="">
+								You aren't Subscribed to any Plan Right Now.
+							</h3>
+                            <h4>
+                                <a href="{% url 'subscribe-now' %}">
+                                    Subscribe Now
+                                </a>
+                            </h4>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+<!-- Specific Page JS goes HERE -->
+{% block javascripts %} {% endblock %}

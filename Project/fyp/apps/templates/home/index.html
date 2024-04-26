@@ -1,0 +1,410 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>GymPro</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		<meta content="Free Website Template" name="keywords" />
+		<meta content="Free Website Template" name="description" />
+
+		<link href="{{ ASSETS_ROOT }}/css/home.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<!-- HEADER -->
+		<header class="header">
+			<div class="container">
+				<nav class="header-nav" aria-label="navigation">
+					<div class="logo-content">
+						<img
+							src="{{ ASSETS_ROOT }}/img/dumbbell.png"
+							alt="Logo"
+							class="nav-icon"
+							width="90"
+							height="60"
+						/>
+						<div class="logo">GymPro</div>
+					</div>
+					<ul>
+						<li>
+							<a href="#aboutus">About</a>
+						</li>
+						<li>
+							<a href="#memberships">Memberships</a>
+						</li>
+						<li>
+							<a href="#ourteam">Our Team</a>
+						</li>
+						<li>
+							{% if user.is_authenticated %}
+							<a href="{% url 'dashboard' %}">Dashboard</a>
+							{% else %}
+							<a href="{% url 'login' %}">Log In</a>
+							{% endif %}
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- MAIN SECTION -->
+		<main>
+			<section class="section-hero" id="section-hero">
+				<div class="container hero-box">
+					<div class="hero-image-content">
+						<h1 class="heading">
+							Your Health, Our Priority: Gym Pro for Optimal
+							Living
+						</h1>
+						<p class="description">
+							Embark on a Transformative Fitness Adventure with
+							Gym Pro: Explore Functional Training, Dynamic
+							Plyometrics, Energizing Aerobics Classes, TRX
+							Workouts, and More for Your Health and Well-being.
+						</p>
+						<div class="hero-box-buttons">
+							<button>Discover Classes</button
+							><button>See Our Offerings</button>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section-aboutus" id="aboutus">
+				<div class="container aboutus">
+					<div class="section-aboutus-info" data-aos="fade-down">
+						<h2>About GymPro</h2>
+						<p>
+							At GymPro, we're not just a fitness center; we're a
+							community dedicated to transforming lives through
+							health and wellness. We strive to help people
+							achieve their fitness goals. Our goal is to empower,
+							motivate and guide you to a healthier and more
+							fulfilling lifestyle.
+						</p>
+						<h2>Our Vision</h2>
+						<p>
+							Our vision is to be your trusted partner in helping
+							you achieve your best health. We believe that being
+							strong and healthy is key to a happy life. Whether
+							you're just starting out or an experienced athlete,
+							we're here to help you succeed.
+						</p>
+					</div>
+					<div class="section-aboutus-images">
+						<figure class="about-box__image">
+							<img
+							src="https://img.freepik.com/free-photo/3d-gym-equipment_23-2151114163.jpg"
+							alt="navigation icon" class="nav-hamburger"
+							width="320" height="190" style="--i: 0"
+							data-aos="fade-down-right" />
+							<img
+								src="https://scontent.fktm16-1.fna.fbcdn.net/v/t1.6435-9/137227414_2762900294028015_2755942814250862417_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=VaWT98yNRCwAX9x09nT&_nc_ht=scontent.fktm16-1.fna&oh=00_AfCvdx2ErB-I_-u6pfjixAQEA7pbg5hgzHAenzxY7XOXNw&oe=662D15C7"
+								alt="navigation icon"
+								class="nav-hamburger"
+								width="320"
+								height="190"
+								style="--i: 1"
+								data-aos="fade-down"
+							/>
+							<img
+								src="https://previews.dropbox.com/p/thumb/ACO3OLUmHmkvdPg6D1YWXOKipZdvcdqiAV-n6f4yTeirjlvH6FeNl4cERM4DKL2TjYINxTdj1cMzGYqqgTPRmRqx_29uQe4vQlp7DP_vzVg_uoOpgbK9kLiBMnUzYEovqwgl0Bh0X8CA7iW98o6jo924-_HpKJciBF4Vul4BHKicvFxVrm5gdaY060RE5nXcBkdi2c3YNWZL24eYU6BK-NSti6UDvT6EMnkl3hpgeU5PgZ-BmLA8F2eXUDTrPLmR7HpiWwlVyGSEo_yuVJ_bh_ZTu9L0F51AnLdLbS531c1R75D6_2vSJ1nmpMC6BIpMaiAXeldSJn__wpw9JFozw7iNutoEB5MNl5irTEUTguMtfA/p.jpeg"
+								alt="navigation icon"
+								class="nav-hamburger"
+								width="320"
+								height="190"
+								style="--i: 2"
+								data-aos="fade-down-left"
+							/>
+						</figure>
+					</div>
+				</div>
+			</section>
+
+			<section class="section-ourteam" id="ourteam">
+				<div class="container ourteam" data-aos="fade-down">
+					<h2 class="title">Our Team</h2>
+					<div class="team-members">
+						<div class="team-member">
+							<img
+								src="https://english.onlinekhabar.com/wp-content/uploads/2023/07/nepali-fitness-influencers-on-instagram-neha-banu.jpg"
+								alt="Logo"
+								class="member-logo"
+							/>
+							<div class="team-memmber-info">
+								<div class="member-name">Neha</div>
+								<div class="member-desg">
+									Weight Lifting Coach
+								</div>
+								<div class="member-desc">
+									Specializes in sculpting strength and muscle
+									with precision
+								</div>
+							</div>
+						</div>
+						<div class="team-member">
+							<img
+								src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Zw8ey4ixF20Sgs9oHuWL0FWM8FkXG2F67W7VqIDl7CHNQnSzk8SMgPQrIo6vJNG2j64&usqp=CAU"
+								alt="Logo"
+								class="nav-icon"
+							/>
+							<div class="team-memmber-info">
+								<div class="member-name">Rabindra Dhant</div>
+								<div class="member-desg">MMA Coach</div>
+								<div class="member-desc">
+									Hones combat skills and self-defense with
+									expertise
+								</div>
+							</div>
+						</div>
+						<div class="team-member">
+							<img
+								src="https://vfitclub.netlify.app/image/RachelDanielle.jpg"
+								alt="Logo"
+								class="nav-icon"
+							/>
+							<div class="team-memmber-info">
+								<div class="member-name">Rachel Danielle</div>
+								<div class="member-desg">Yoga Instructor</div>
+								<div class="member-desc">
+									Guides you to inner peace and flexibility
+									through mindful yoga practice
+								</div>
+							</div>
+						</div>
+						<div class="team-member">
+							<img
+								src="https://vfitclub.netlify.app/image/TaylorMelé.jpg"
+								alt="Logo"
+								class="nav-icon"
+							/>
+							<div class="team-memmber-info">
+								<div class="member-name">Taylor Melé</div>
+								<div class="member-desg">Personal Trainer</div>
+								<div class="member-desc">
+									Your path to achieving fitness goals, one
+									personalized session at a time
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section-memberships" id="memberships">
+				<div class="container memberships">
+					<h2 class="title">Memberships</h2>
+					<div class="classes">
+						<div class="class" data-aos="flip-left">
+							<h2 class="class-name">3 Months</h2>
+							<div class="class-price">Rs.10,000</div>
+							<hr />
+							<div class="class-name">
+								<ul>
+									<li>5 Classes</li>
+									<li>5 In Personal Training Sessions</li>
+									<li>Full Gym & Facilities Access</li>
+									<li>Gym Tour & Training Instruction</li>
+								</ul>
+							</div>
+							<a>Get Started</a>
+						</div>
+						<div class="class" data-aos="flip-up">
+							<h2 class="class-name">6 Months</h2>
+							<div class="class-price">Rs.18,000</div>
+							<hr />
+							<div class="class-name">
+								<ul>
+									<li>10 Classes</li>
+									<li>10 In Personal Training Sessions</li>
+									<li>Full Gym & Facilities Access</li>
+									<li>Boxing Ring, Free Events</li>
+									<li>Gym Tour & Training Instruction</li>
+								</ul>
+							</div>
+							<a>Get Started</a>
+						</div>
+						<div class="class" data-aos="flip-right">
+							<h2 class="class-name">1 Whole Year</h2>
+							<div class="class-price">Rs.50,000</div>
+							<hr />
+							<div class="class-name">
+								<ul>
+									<li>10 Classes</li>
+									<li>15 In Personal Training Sessions</li>
+									<li>Full Gym & Facilities Access</li>
+									<li>Boxing Ring, Free Events</li>
+									<li>Gym Tour & Training Instruction</li>
+								</ul>
+							</div>
+							<a>Get Started</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section-reviews" id="reviews">
+				<div class="container reviews">
+					<h2 class="title">Customer Reviews</h2>
+					<div class="review">
+						<div class="review-info">
+							<div class="review-image" data-aos="image-rotateIn">
+								<img
+									src="https://vfitclub.netlify.app/image/review1.jpeg"
+									alt="Logo"
+									class="review-icon"
+									width="130"
+									height="130"
+								/>
+							</div>
+							<div class="review-details" data-aos="fade-down">
+								<div>Samantha R</div>
+								<div>
+									I can't say enough good things about GymPro.
+									The trainers are exceptional, and the
+									community is so welcoming. I've made
+									incredible progress in my fitness journey
+									here
+								</div>
+							</div>
+						</div>
+						<div class="review-info">
+							<div class="review-image" data-aos="image-rotateIn">
+								<img
+									src="https://vfitclub.netlify.app/image/review2.jpeg"
+									alt="Logo"
+									class="review-icon"
+									width="130"
+									height="130"
+								/>
+							</div>
+							<div class="review-details" data-aos="fade-down">
+								<div>Vinay U</div>
+								<div>
+									Charlie, the MMA coach, is a true expert. He
+									pushes you to your limits while ensuring
+									safety. I've learned so much and gained
+									newfound confidence
+								</div>
+							</div>
+						</div>
+						<div class="review-info">
+							<div class="review-image" data-aos="image-rotateIn">
+								<img
+									src="https://vfitclub.netlify.app/image/review3.jpeg"
+									alt="Logo"
+									class="review-icon"
+									width="130"
+									height="130"
+								/>
+							</div>
+							<div class="review-details" data-aos="fade-down">
+								<div>Michael S</div>
+								<div>
+									GymPro is not just a gym; it's a lifestyle.
+									The facility is top-notch, and the trainers
+									are top-level. I've never felt more
+									motivated and supported in my fitness
+									journey
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section-contact" id="contact">
+				<div class="container contact">
+					<div class="contactus">
+						<form>
+							<h2 class="title">GET IN TOUCH</h2>
+							<div class="class-input">
+								<input type="text" placeholder="Name" />
+							</div>
+							<div class="class-input">
+								<input type="email" placeholder="Email" />
+							</div>
+
+							<div class="class-input">
+								<input type="number" placeholder="Number" />
+							</div>
+							<div class="class-input">
+								<textarea placeholder="Message"></textarea>
+							</div>
+							<button>SEND</button>
+						</form>
+					</div>
+					<div class="map">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17407.10731476924!2d85.31461741292198!3d27.702671094505867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb196de5da5741%3A0x652792640c70ede9!2sHerald%20College%20Kathmandu!5e0!3m2!1sen!2snp!4v1712886480266!5m2!1sen!2snp"
+							width="600"
+							height="450"
+							style="border: 0"
+							allowfullscreen=""
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+						></iframe>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="section-footer" id="footer">
+			<div class="footer-box container">
+				<div class="contact-details">
+					<h2>GymPro</h2>
+					<div class="contact-company-address">Kathmandu, Nepal</div>
+					<div class="contact-social-links">
+						<img
+						src="https://vfitclub.netlify.app/image/whatsapp.svg"
+						alt="navigation icon" class="nav-hamburger" width=35"
+						height="35" /> <img
+						src="https://vfitclub.netlify.app/image/facebook.svg"
+						alt="navigation icon" class="nav-hamburger" width=35"
+						height="35" /> <img
+						src="https://vfitclub.netlify.app/image/instagram.svg"
+						alt="navigation icon" class="nav-hamburger" width=35"
+						height="35" /> <img
+						src="https://vfitclub.netlify.app/image/twitter.svg"
+						alt="navigation icon" class="nav-hamburger" width=35"
+						height="35" />
+					</div>
+				</div>
+				<nav class="footer-nav" aria-label="navigation">
+					<h3>Quick Links</h3>
+					<ul>
+						<li>
+							<a href="#aboutus">About</a>
+						</li>
+						<li>
+							<a href="#memberships">Memberships</a>
+						</li>
+						<li>
+							<a href="#ourteam">Our Team</a>
+						</li>
+						<li>
+							<a href="#contact">Contact </a>
+						</li>
+						<li>
+							<a href="#reviews">Reviews</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="newsletter">
+					<h3>News Letter</h3>
+					<input
+						type="email"
+						placeholder="email@domain.com"
+					/><button>&#10003;</button>
+				</div>
+			</div>
+			<hr />
+		</footer>
+		<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+		<script>
+			AOS.init({
+				offset: 120,
+				delay: 50,
+				duration: 400,
+				once: true,
+			});
+		</script>
+	</body>
+</html>

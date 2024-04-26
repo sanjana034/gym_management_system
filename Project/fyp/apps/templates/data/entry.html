@@ -1,0 +1,46 @@
+{% extends "layouts/base-fullscreen.html" %} {% block title %} Data {% endblock %}
+
+{% block content %}
+<div class="content">
+	<div class="container">
+		<div class="row pt-5">
+			<div class="col-md-6 mt-5 offset-md-3 pt-5 mt-5">
+				<div class="card">
+					<div class="card-header text-center py-4">
+						<h4 class="title">{{ title }}</h4>
+						<h6 class="card-category">
+							{% if msg %}
+							<span class="text-danger">{{ msg | safe }}</span>
+							{% else %}
+							<span> {{ sub_title }} </span>
+							{% endif %}
+						</h6>
+					</div>
+
+					<form role="form" method="post" action="">
+						{% csrf_token %}
+
+                        <div class="px-5">
+                            {{ form }}
+                        </div>
+
+                        <div class="card-footer text-center">
+							<button
+								type="submit"
+								name="login"
+								class="btn btn-fill btn-primary"
+							>
+								Submit
+							</button>
+
+							<br /><br />
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
